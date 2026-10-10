@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import GrowthAuditForm from "@/components/GrowthAuditForm";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import HeroGlobe from "@/components/HeroGlobe";
 
 export const metadata: Metadata = {
   title: "GrowByMasters — Digital Growth & Consulting",
@@ -253,44 +254,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Visual: Glowing Digital Globe Graphic with Floating Metric Nodes */}
+            {/* Right Visual: Glowing 3D Rotating Earth Globe with Network Arcs */}
             <div className="lg:col-span-5 relative flex items-center justify-center">
-              <div className="relative w-full max-w-[480px] aspect-square rounded-3xl overflow-hidden border border-[#223244]/80 shadow-2xl shadow-black/80 bg-[#0C141C] group">
-                <Image
-                  src="/images/hero-globe.jpg"
-                  alt="GrowByMasters Global Digital Connectivity and Growth Engine"
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 480px"
-                />
-
-                {/* Gradient vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#101A24]/90 via-transparent to-transparent pointer-events-none" />
-
-                {/* Floating Metrics Badge 1 (Top Right) */}
-                <div className="absolute top-5 right-5 bg-[#101A24]/90 backdrop-blur-md border border-[#223244] px-3.5 py-2 rounded-xl shadow-lg flex items-center gap-2.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#237A72] animate-ping" />
-                  <div className="text-[11px] font-medium text-white">
-                    Live Attribution: <span className="text-[#237A72]">Active</span>
-                  </div>
-                </div>
-
-                {/* Floating Metrics Badge 2 (Bottom Left) */}
-                <div className="absolute bottom-5 left-5 bg-[#101A24]/90 backdrop-blur-md border border-[#223244] px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#D8B477]/15 flex items-center justify-center">
-                    <TrendingUp className="w-4 h-4 text-[#D8B477]" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] uppercase tracking-wider text-[#8C959D]">
-                      Average Pipeline Lift
-                    </div>
-                    <div className="text-sm font-semibold text-white">
-                      +200% Inbound Leads
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <HeroGlobe />
             </div>
           </div>
 
