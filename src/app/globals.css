@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #101a24;
+  --color-navy-dark: #0b121a;
+  --color-navy-light: #162330;
+  --color-navy-card: #14202c;
+  --color-navy-border: #223244;
+  --color-navy-subtle: #2d3f52;
+
+  --color-ivory: #f7f5f0;
+  --color-ivory-light: #faf9f6;
+  --color-ivory-card: #ffffff;
+  --color-ivory-border: #eae6dc;
+  --color-ivory-subtle: #eeeae0;
+
+  --color-gold: #d8b477;
+  --color-gold-hover: #c9a466;
+  --color-gold-light: #eedbbe;
+  --color-gold-muted: rgba(216, 180, 119, 0.15);
+  --color-gold-dark: #a48145;
+
+  --color-teal: #237a72;
+  --color-teal-light: #2d968c;
+  --color-teal-surface: #edf7f6;
+  --color-teal-dark: #1a5c56;
+
+  --color-text-main: #1d2732;
+  --color-text-muted: #626b73;
+  --color-text-subtle: #8c959d;
+
+  --font-serif: var(--font-dm-serif), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --background: #f7f5f0;
+  --foreground: #1d2732;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background-color: #f7f5f0;
+  color: #1d2732;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif-heading {
+  font-family: var(--font-dm-serif), Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle glow and pulse for data node visual */
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #101a24;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3b4c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d8b477;
+}
+
+/* Focus visibility for accessibility */
+*:focus-visible {
+  outline: 2px solid #d8b477;
+  outline-offset: 2px;
+}
