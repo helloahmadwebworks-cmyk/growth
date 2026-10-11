@@ -4,11 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
-  ArrowRight,
   Calendar,
   Clock,
   CheckCircle2,
-  Share2,
   ChevronRight,
   Sparkles,
 } from "lucide-react";

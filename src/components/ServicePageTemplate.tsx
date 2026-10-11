@@ -4,7 +4,6 @@ import {
   CheckCircle2,
   ChevronRight,
   Shield,
-  Layers,
   Sparkles,
   ArrowUpRight,
   LucideIcon,

@@ -98,7 +98,7 @@ export default function HeroGlobe() {
     // Check user preference for reduced motion
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (motionQuery.matches) {
-      setReducedMotion(true);
+      queueMicrotask(() => setReducedMotion(true));
       return;
     }
 
@@ -107,7 +107,7 @@ export default function HeroGlobe() {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) {
-      setUse3D(false);
+      queueMicrotask(() => setUse3D(false));
       return;
     }
 
@@ -141,9 +141,9 @@ export default function HeroGlobe() {
       const theta = ((lng + 180) * Math.PI) / 180 + rot;
 
       // Coordinate on sphere
-      let x = -radius * Math.cos(phi) * Math.cos(theta);
-      let y = radius * Math.sin(phi);
-      let z = radius * Math.cos(phi) * Math.sin(theta);
+      const x = -radius * Math.cos(phi) * Math.cos(theta);
+      const y = radius * Math.sin(phi);
+      const z = radius * Math.cos(phi) * Math.sin(theta);
 
       // Apply polar tilt (around X axis)
       const cosT = Math.cos(globeTilt);

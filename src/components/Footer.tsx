@@ -76,6 +76,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/services/web-design-development"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Web Design & Development</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/services/google-ads"
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >

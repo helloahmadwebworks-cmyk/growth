@@ -13,6 +13,7 @@ import {
 
 const availableServices = [
   "SEO & Local SEO",
+  "Website Design & Development",
   "Google Ads Management",
   "Website Optimization",
   "Lead Generation Systems",
@@ -41,7 +42,7 @@ const targetCountries = [
 ];
 
 function resolveDefaultService(svc?: string): string[] {
-  if (!svc) return ["SEO & Local SEO", "Website Optimization"];
+  if (!svc) return ["SEO & Local SEO", "Website Design & Development"];
   const lower = svc.toLowerCase();
   const matched = availableServices.find(
     (s) => s.toLowerCase().includes(lower) || lower.includes(s.toLowerCase().split(" ")[0])

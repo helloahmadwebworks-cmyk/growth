@@ -4,8 +4,6 @@ import {
   ArrowRight,
   CheckCircle2,
   ChevronRight,
-  Shield,
-  TrendingUp,
   Sparkles,
   ArrowUpRight,
   AlertCircle,

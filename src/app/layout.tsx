@@ -103,7 +103,15 @@ export default function RootLayout({
       addressRegion: "Uttar Pradesh",
       addressCountry: "IN",
     },
-    areaServed: ["United States", "Canada", "Australia", "United Arab Emirates", "India"],
+    areaServed: [
+      "United States",
+      "Canada",
+      "Australia",
+      "United Arab Emirates",
+      "Saudi Arabia",
+      "Qatar",
+      "India",
+    ],
     priceRange: "$$",
     email: "contact@growbymasters.com",
     contactPoint: {
@@ -115,6 +123,7 @@ export default function RootLayout({
     knowsAbout: [
       "Search Engine Optimization",
       "Local SEO",
+      "Website Design and Custom Web Development",
       "Google Ads Management",
       "Website Conversion Rate Optimization",
       "Inbound Lead Generation Systems",

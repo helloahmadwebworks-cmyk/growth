@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
-  ArrowRight,
   CheckCircle2,
-  TrendingUp,
-  Clock,
   Sparkles,
-  Layers,
   BarChart3,
   Lightbulb,
 } from "lucide-react";

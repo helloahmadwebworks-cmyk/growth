@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/services", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/seo", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/local-seo", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
+    { path: "/services/web-design-development", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/google-ads", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/website-optimization", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/lead-generation", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },

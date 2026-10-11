@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MapPin, Star, Building, CheckCircle2, ShieldCheck, PhoneCall } from "lucide-react";
+import { MapPin, Star, Building, PhoneCall } from "lucide-react";
 import ServicePageTemplate, { ServicePageProps } from "@/components/ServicePageTemplate";
 
 export const metadata: Metadata = {

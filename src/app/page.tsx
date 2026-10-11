@@ -6,8 +6,8 @@ import {
   Search,
   Target,
   Globe,
+  Code2,
   Users,
-  PenTool,
   BarChart3,
   CheckCircle2,
   TrendingUp,
@@ -15,9 +15,7 @@ import {
   Compass,
   Activity,
   Layers,
-  ArrowUpRight,
   Shield,
-  Clock,
 } from "lucide-react";
 import GrowthAuditForm from "@/components/GrowthAuditForm";
 import TestimonialSlider from "@/components/TestimonialSlider";
@@ -70,10 +68,17 @@ const coreServices = [
     href: "/services/google-ads",
   },
   {
-    icon: Globe,
-    title: "Website Design & Optimization",
+    icon: Code2,
+    title: "Website Design & Development",
     description:
-      "Fast, modern, and conversion-focused websites engineered to turn visitors into booked consultations and revenue.",
+      "Bespoke, high-performance Next.js websites engineered for sub-second speeds, commercial credibility, and lead generation.",
+    href: "/services/web-design-development",
+  },
+  {
+    icon: Globe,
+    title: "Website Optimization & CRO",
+    description:
+      "Conversion architecture and page speed optimization engineered to turn existing visitors into booked consultations.",
     href: "/services/website-optimization",
   },
   {
@@ -82,13 +87,6 @@ const coreServices = [
     description:
       "Tailored multi-channel funnels, qualification forms, and CRM automation built to keep your sales pipeline filled.",
     href: "/services/lead-generation",
-  },
-  {
-    icon: PenTool,
-    title: "Content Marketing",
-    description:
-      "Strategic, authoritative content that builds industry trust, captures long-tail search volume, and educates buyers.",
-    href: "/services/content-marketing",
   },
   {
     icon: BarChart3,

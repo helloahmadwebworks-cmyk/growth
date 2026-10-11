@@ -5,11 +5,7 @@ import {
   ArrowRight,
   CheckCircle2,
   Globe2,
-  ShieldCheck,
-  TrendingUp,
-  Target,
   Sparkles,
-  Layers,
   MapPin,
 } from "lucide-react";
 import GrowthAuditForm from "@/components/GrowthAuditForm";

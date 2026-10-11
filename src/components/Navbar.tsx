@@ -20,6 +20,7 @@ import {
   Briefcase,
   Home as HomeIcon,
   Cpu,
+  Code2,
   MapPin,
 } from "lucide-react";
 
@@ -35,6 +36,12 @@ const serviceLinks = [
     href: "/services/local-seo",
     desc: "Own the top 3 spots in Google Local Map Packs.",
     icon: MapPin,
+  },
+  {
+    name: "Web Design & Development",
+    href: "/services/web-design-development",
+    desc: "Custom Next.js web systems built for inbound lead velocity.",
+    icon: Code2,
   },
   {
     name: "Google Ads Management",
@@ -122,12 +129,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menus on route change
-  useEffect(() => {
+  // Reset menus on route change during render
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileMenuOpen(false);
     setServicesDropdown(false);
     setIndustriesDropdown(false);
-  }, [pathname]);
+  }
 
   return (
     <header

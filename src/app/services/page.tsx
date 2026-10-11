@@ -4,6 +4,7 @@ import {
   Search,
   Target,
   Globe,
+  Code2,
   Users,
   PenTool,
   BarChart3,
@@ -15,14 +16,14 @@ import {
 export const metadata: Metadata = {
   title: "Growth Services — Digital Systems for Modern Businesses",
   description:
-    "Explore our full suite of digital growth services: SEO, Local SEO, Google Ads, Website Optimization, Lead Generation Systems, Content Marketing, and Analytics.",
+    "Explore our full suite of digital growth services: SEO, Local SEO, Website Design & Development, Google Ads, Website Optimization, Lead Generation Systems, Content Marketing, and Analytics.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
     title: "Growth Services — Digital Systems for Modern Businesses | GrowByMasters",
     description:
-      "Explore our full suite of digital growth services: SEO, Local SEO, Google Ads, Website Optimization, Lead Generation Systems, Content Marketing, and Analytics.",
+      "Explore our full suite of digital growth services: SEO, Local SEO, Website Design & Development, Google Ads, Website Optimization, Lead Generation Systems, Content Marketing, and Analytics.",
     url: "https://growbymasters.com/services",
     siteName: "GrowByMasters",
     images: [{ url: "/images/hero-globe.jpg", width: 1200, height: 630, alt: "GrowByMasters Growth Services" }],
@@ -59,6 +60,20 @@ const services = [
     ],
   },
   {
+    icon: Code2,
+    title: "Website Design & Development",
+    badge: "Web Engineering",
+    href: "/services/web-design-development",
+    summary:
+      "Bespoke, high-performance web development built with modern Next.js. Engineered for commercial credibility, sub-second load times, and qualified inbound lead velocity.",
+    deliverables: [
+      "Custom Next.js & TypeScript Architecture",
+      "Editorial UI/UX Design for Premium Buyers",
+      "100/100 Core Web Vitals & Sub-Second LCP",
+      "Built-in Technical SEO, Schema & CRM Capture",
+    ],
+  },
+  {
     icon: Target,
     title: "Google Ads Management",
     badge: "Immediate Intent",
@@ -74,16 +89,16 @@ const services = [
   },
   {
     icon: Globe,
-    title: "Website Design & Optimization",
+    title: "Website Optimization & CRO",
     badge: "Conversion Architecture",
     href: "/services/website-optimization",
     summary:
-      "Websites built to sell, not just to look pretty. Lightning-fast Next.js architecture, intuitive user flows, clear value propositions, and friction-free lead capture forms.",
+      "Systematic conversion rate optimization to turn existing visitors into booked consultations. We eliminate UX friction, test value propositions, and optimize form completion.",
     deliverables: [
-      "Mobile-First Responsive UX/UI Design",
-      "Sub-second Page Load & 100/100 Core Web Vitals",
-      "Conversion Rate Optimization (CRO) Heatmap Auditing",
       "Frictionless Qualification Forms & Meeting Scheduling",
+      "Sub-second Page Load & Core Web Vitals Optimization",
+      "Conversion Rate Optimization (CRO) Heatmap Auditing",
+      "Mobile UX Touch Optimization & Click-to-Call Flows",
     ],
   },
   {
@@ -160,7 +175,7 @@ export default function ServicesPage() {
       <section className="bg-[#F7F5F0] py-20 border-b border-[#E8E4DA]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-10">
-            {services.map((s, idx) => {
+            {services.map((s) => {
               const Icon = s.icon;
               return (
                 <div
