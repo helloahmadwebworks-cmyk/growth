@@ -22,16 +22,16 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import HeroGlobe from "@/components/HeroGlobe";
 
 export const metadata: Metadata = {
-  title: "GrowByMasters — Digital Growth & Consulting",
+  title: "Digital Marketing Agency for Business Growth | GrowByMasters",
   description:
-    "We build digital growth systems. Helping businesses improve search visibility, attract qualified prospects, and turn digital marketing into measurable growth.",
+    "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "GrowByMasters — Digital Growth & Consulting",
+    title: "Digital Marketing Agency for Business Growth | GrowByMasters",
     description:
-      "We build digital growth systems. Helping businesses improve search visibility, attract qualified prospects, and turn digital marketing into measurable growth.",
+      "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
     url: "https://growbymasters.com",
     siteName: "GrowByMasters",
     images: [
@@ -39,15 +39,16 @@ export const metadata: Metadata = {
         url: "/images/hero-globe.jpg",
         width: 1200,
         height: 630,
-        alt: "GrowByMasters Global Digital Growth Systems",
+        alt: "GrowByMasters Digital Marketing Agency for Business Growth",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GrowByMasters — Digital Growth & Consulting",
-    description: "We build digital growth systems for ambitious businesses.",
+    title: "Digital Marketing Agency for Business Growth | GrowByMasters",
+    description:
+      "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
     images: ["/images/hero-globe.jpg"],
   },
 };
@@ -219,18 +220,18 @@ export default function HomePage() {
             <div className="lg:col-span-7 space-y-8">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#182736] border border-[#2A3E54] text-[#D8B477] text-xs font-medium">
                 <Sparkles className="w-3.5 h-3.5 text-[#D8B477]" />
-                <span>Global B2B Digital Growth & Consulting Agency</span>
+                <span>Global Digital Marketing & Growth Consulting Agency</span>
               </div>
 
               <h1 className="font-serif-heading text-4xl sm:text-5xl lg:text-[62px] leading-[1.08] font-normal tracking-tight text-white">
-                Digital Growth <br className="hidden sm:block" />
-                for Ambitious <br className="hidden sm:block" />
-                Businesses
+                Digital Marketing Agency <br className="hidden sm:block" />
+                for Business Growth
               </h1>
 
               <p className="text-base sm:text-lg text-[#A6B2BD] max-w-xl leading-relaxed">
-                We help businesses improve visibility, generate qualified leads,
-                and grow through data-driven digital marketing.
+                We build predictable digital growth systems. Helping businesses improve
+                search visibility, attract qualified prospects, convert visitors, and
+                measure marketing performance.
               </p>
 
               {/* Action Buttons */}

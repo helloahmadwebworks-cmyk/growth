@@ -30,12 +30,13 @@ export const metadata: Metadata = {
     canonical: "./",
   },
   title: {
-    default: "GrowByMasters — Digital Growth & Consulting",
+    default: "Digital Marketing Agency for Business Growth | GrowByMasters",
     template: "%s | GrowByMasters",
   },
   description:
-    "We build digital growth systems. Helping businesses improve search visibility, attract qualified prospects, and turn digital marketing into measurable growth.",
+    "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
   keywords: [
+    "Digital Marketing Agency",
     "Digital Growth Agency",
     "B2B Growth Consulting",
     "SEO Services",
@@ -53,22 +54,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://growbymasters.com",
     siteName: "GrowByMasters",
-    title: "GrowByMasters — Digital Growth & Consulting",
+    title: "Digital Marketing Agency for Business Growth | GrowByMasters",
     description:
-      "We build digital growth systems. Improve online visibility, generate qualified leads, and achieve measurable business growth.",
+      "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
     images: [
       {
         url: "/images/hero-globe.jpg",
         width: 1200,
         height: 630,
-        alt: "GrowByMasters Global Digital Growth Systems",
+        alt: "GrowByMasters Digital Marketing Agency for Business Growth",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GrowByMasters — Digital Growth & Consulting",
-    description: "We build digital growth systems for ambitious businesses.",
+    title: "Digital Marketing Agency for Business Growth | GrowByMasters",
+    description:
+      "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
     images: ["/images/hero-globe.jpg"],
   },
   robots: {
@@ -94,7 +96,7 @@ export default function RootLayout({
     "@type": "ProfessionalService",
     name: "GrowByMasters",
     description:
-      "Digital growth and consulting agency helping businesses build predictable client acquisition systems, SEO, Google Ads, and analytics tracking.",
+      "Digital marketing agency and growth consultancy helping businesses build predictable client acquisition systems, SEO, Google Ads, and analytics tracking.",
     url: "https://growbymasters.com",
     logo: "https://growbymasters.com/images/hero-globe.jpg",
     address: {
