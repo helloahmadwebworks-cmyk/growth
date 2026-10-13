@@ -5,10 +5,8 @@ import {
   ArrowRight,
   Search,
   Target,
-  Globe,
   Code2,
   Users,
-  BarChart3,
   CheckCircle2,
   TrendingUp,
   Sparkles,
@@ -16,6 +14,10 @@ import {
   Activity,
   Layers,
   Shield,
+  Megaphone,
+  Palette,
+  Share2,
+  Mail,
 } from "lucide-react";
 import GrowthAuditForm from "@/components/GrowthAuditForm";
 import TestimonialSlider from "@/components/TestimonialSlider";
@@ -24,14 +26,14 @@ import HeroGlobe from "@/components/HeroGlobe";
 export const metadata: Metadata = {
   title: "Digital Marketing Agency for Business Growth | GrowByMasters",
   description:
-    "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
+    "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, paid advertising, web engineering, graphic design, branding, and qualified lead generation systems.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Digital Marketing Agency for Business Growth | GrowByMasters",
     description:
-      "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
+      "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, paid advertising, web engineering, graphic design, branding, and qualified lead generation systems.",
     url: "https://growbymasters.com",
     siteName: "GrowByMasters",
     images: [
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Digital Marketing Agency for Business Growth | GrowByMasters",
     description:
-      "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, Google Ads management, website optimization, and qualified lead generation systems.",
+      "GrowByMasters is a digital marketing agency helping ambitious businesses scale with high-impact SEO, paid advertising, web engineering, graphic design, branding, and qualified lead generation systems.",
     images: ["/images/hero-globe.jpg"],
   },
 };
@@ -58,7 +60,7 @@ const coreServices = [
     icon: Search,
     title: "SEO & Local SEO",
     description:
-      "Rank higher on Google, dominate local map packs, and attract qualified prospective clients searching with high intent.",
+      "Rank higher on Google, dominate local map packs, and attract qualified prospective clients searching with commercial intent.",
     href: "/services/seo",
   },
   {
@@ -69,32 +71,53 @@ const coreServices = [
     href: "/services/google-ads",
   },
   {
+    icon: Megaphone,
+    title: "Meta Ads Management",
+    description:
+      "Scale targeted acquisition across Facebook and Instagram with high-volume creative testing and server-side CAPI tracking.",
+    href: "/services/meta-ads",
+  },
+  {
     icon: Code2,
     title: "Website Design & Development",
     description:
-      "Bespoke, high-performance Next.js websites engineered for sub-second speeds, commercial credibility, and lead generation.",
+      "Bespoke, high-performance Next.js websites engineered for sub-second speeds, commercial credibility, and lead velocity.",
     href: "/services/web-design-development",
   },
   {
-    icon: Globe,
-    title: "Website Optimization & CRO",
+    icon: Layers,
+    title: "Branding & Visual Identity",
     description:
-      "Conversion architecture and page speed optimization engineered to turn existing visitors into booked consultations.",
-    href: "/services/website-optimization",
+      "Define an unmistakable market presence with strategic positioning, scalable logo marks, typographic scale, and brand manuals.",
+    href: "/services/branding",
+  },
+  {
+    icon: Palette,
+    title: "Graphic Design Services",
+    description:
+      "High-CTR ad creatives, sales brochures, executive pitch decks, and digital assets designed with cohesive commercial discipline.",
+    href: "/services/graphic-design",
+  },
+  {
+    icon: Share2,
+    title: "Social Media Marketing",
+    description:
+      "Cultivate an authoritative organic brand presence across LinkedIn, Instagram, and X with editorial thought leadership.",
+    href: "/services/social-media-marketing",
+  },
+  {
+    icon: Mail,
+    title: "Email Marketing & Nurturing",
+    description:
+      "Automated lifecycle sequences, deliverability infrastructure, and lead follow-ups that turn captured inquiries into closed sales.",
+    href: "/services/email-marketing",
   },
   {
     icon: Users,
     title: "Lead Generation Systems",
     description:
-      "Tailored multi-channel funnels, qualification forms, and CRM automation built to keep your sales pipeline filled.",
+      "Tailored multi-channel funnels, qualification forms, and CRM automation built to keep your sales pipeline consistently filled.",
     href: "/services/lead-generation",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics & Tracking",
-    description:
-      "Measure performance with GA4 server-side tracking, CRM attribution, and transparent growth dashboards that prove ROI.",
-    href: "/services/analytics-tracking",
   },
 ];
 

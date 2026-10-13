@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import {
   checkRateLimit,
+  checkIsDuplicate,
+  processAndStoreLead,
   maskEmail,
-  persistAndDispatchLead,
-  AuditLeadRecord,
+  RawLeadSubmission,
 } from "@/lib/leadStorage";
 
 export async function POST(request: Request) {
@@ -25,7 +26,7 @@ export async function POST(request: Request) {
 
     const data = await request.json();
 
-    // 2. Silent Honeypot Spam Check (Never reveal honeypot trap to automated bots)
+    // 2. Silent Honeypot Spam Protection
     if (data.company_website_hp) {
       const silentReferenceId = `GBM-AUD-${Date.now().toString(36).toUpperCase()}`;
       return NextResponse.json(
@@ -39,7 +40,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. Required Fields Validation
+    // 3. Required Fields & Sanitization Validation
     const {
       fullName,
       businessName,
@@ -49,76 +50,124 @@ export async function POST(request: Request) {
       industry,
       services,
       mainChallenge,
+      marketingSituation,
+      timeline,
       budget,
       phone,
+      preferredContactMethod,
+      consentFollowUp,
+      attribution,
     } = data;
 
-    if (!fullName || !businessName || !businessWebsite || !businessEmail) {
+    if (!fullName || typeof fullName !== "string" || !fullName.trim()) {
       return NextResponse.json(
-        { error: "Please complete all required fields." },
+        { error: "Please provide your full name." },
         { status: 422 }
       );
     }
 
-    // 4. Email Format Validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(businessEmail)) {
+    if (!businessName || typeof businessName !== "string" || !businessName.trim()) {
       return NextResponse.json(
-        { error: "Please provide a valid business email address." },
+        { error: "Please provide your company or business name." },
         { status: 422 }
       );
     }
 
-    // 5. Website URL Sanity Check
-    if (!businessWebsite.includes(".") || businessWebsite.length < 4) {
+    if (!businessWebsite || typeof businessWebsite !== "string" || !businessWebsite.trim()) {
+      return NextResponse.json(
+        { error: "Please provide your business website URL." },
+        { status: 422 }
+      );
+    }
+
+    // Website URL basic structure
+    const cleanedUrl = businessWebsite.trim();
+    if (!cleanedUrl.includes(".") || cleanedUrl.length < 4) {
       return NextResponse.json(
         { error: "Please enter a valid website URL or domain." },
         { status: 422 }
       );
     }
 
-    const referenceId = `GBM-AUD-${Date.now().toString(36).toUpperCase()}`;
-    const timestamp = new Date().toISOString();
+    if (!businessEmail || typeof businessEmail !== "string" || !businessEmail.trim()) {
+      return NextResponse.json(
+        { error: "Please provide your business email address." },
+        { status: 422 }
+      );
+    }
 
-    const auditLead: AuditLeadRecord = {
-      referenceId,
-      timestamp,
+    // RFC-standard email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(businessEmail.trim())) {
+      return NextResponse.json(
+        { error: "Please provide a valid business email address." },
+        { status: 422 }
+      );
+    }
+
+    // Services validation
+    const selectedServices = Array.isArray(services) && services.length > 0
+      ? services
+      : ["SEO & Local SEO"];
+
+    // 4. Duplicate Submission Protection
+    if (checkIsDuplicate(businessEmail.trim(), cleanedUrl)) {
+      return NextResponse.json(
+        {
+          error: "An inquiry for this website and email was recently received. Our strategists are already reviewing your domain.",
+        },
+        { status: 429 }
+      );
+    }
+
+    // 5. Build submission payload
+    const submission: RawLeadSubmission = {
       fullName: fullName.trim(),
       businessName: businessName.trim(),
-      businessWebsite: businessWebsite.trim(),
+      businessWebsite: cleanedUrl,
       businessEmail: businessEmail.trim().toLowerCase(),
-      phone: phone?.trim() || "Not provided",
+      phone: phone ? String(phone).trim() : undefined,
+      preferredContactMethod: preferredContactMethod || "Email",
       country: country || "United States",
-      industry: industry || "Not specified",
-      services: Array.isArray(services) ? services : [services],
-      mainChallenge: mainChallenge?.trim() || "General growth audit",
-      budget: budget || "Not specified",
-      status: "RECEIVED_PENDING_REVIEW",
+      industry: industry || "General Industry",
+      services: selectedServices,
+      mainChallenge: mainChallenge ? String(mainChallenge).trim() : "General growth diagnostic requested",
+      marketingSituation: marketingSituation ? String(marketingSituation).trim() : undefined,
+      timeline: timeline ? String(timeline).trim() : undefined,
+      budget: budget || "$1,000 - $3,000 / month",
+      consentFollowUp: consentFollowUp !== false,
+      attribution,
       ipAddress: clientIp,
       userAgent: request.headers.get("user-agent") || undefined,
     };
 
-    // 6. Persistent Storage & Webhook/Email Dispatch
-    const dispatchResult = await persistAndDispatchLead(auditLead);
+    // 6. Durable Storage, Lead Scoring & Dispatch
+    const storageResult = await processAndStoreLead(submission);
 
-    // 7. Sanitized Logging (Zero unprotected PII in stdout logs)
-    console.log(
-      `[LEAD_PROCESSED] Ref: ${referenceId} | Company: "${auditLead.businessName}" | Domain: "${auditLead.businessWebsite}" | Email: ${maskEmail(auditLead.businessEmail)} | Country: ${auditLead.country} | Stored: ${dispatchResult.destination.join(", ")}`
-    );
+    if (!storageResult.persistedDurable && !storageResult.emailStatus.agencyEmailSent) {
+      return NextResponse.json(
+        {
+          error:
+            "Our automated lead ingestion is currently unavailable. Please reach out to our team directly at contact@growbymasters.com.",
+        },
+        { status: 503 }
+      );
+    }
 
     return NextResponse.json(
       {
         success: true,
-        referenceId,
+        referenceId: storageResult.referenceId,
         message:
-          "Your Growth Audit request has been registered. Our strategists will inspect your domain within 24 business hours.",
+          "Your Growth Audit request has been registered. Our senior growth strategist is inspecting your digital architecture and will deliver an executive diagnostic within 24 business hours.",
         leadSummary: {
-          referenceId,
-          businessName: auditLead.businessName,
-          businessWebsite: auditLead.businessWebsite,
-          contactEmail: maskEmail(auditLead.businessEmail),
-          status: "In Strategic Review",
+          referenceId: storageResult.referenceId,
+          businessName: storageResult.leadRecord.businessName,
+          businessWebsite: storageResult.leadRecord.businessWebsite,
+          contactEmail: maskEmail(storageResult.leadRecord.businessEmail),
+          priorityTier: storageResult.leadRecord.priority,
           estimatedTurnaround: "1 Business Day",
+          bookingLink: `/book-call?ref=${encodeURIComponent(storageResult.referenceId)}`,
         },
       },
       { status: 200 }
@@ -127,7 +176,7 @@ export async function POST(request: Request) {
     console.error("[AUDIT_API_ERROR]", err instanceof Error ? err.message : String(err));
     return NextResponse.json(
       {
-        error: "An unexpected error occurred while processing your request. Please try again or email us directly.",
+        error: "An unexpected error occurred while processing your request. Please try again or email contact@growbymasters.com directly.",
       },
       { status: 500 }
     );

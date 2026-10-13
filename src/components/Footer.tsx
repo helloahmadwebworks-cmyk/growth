@@ -55,23 +55,14 @@ export default function Footer() {
             <h3 className="text-xs font-semibold text-[#D8B477] uppercase tracking-wider mb-4">
               Growth Services
             </h3>
-            <ul className="space-y-2.5 text-sm text-[#9AA2A9]">
+            <ul className="space-y-2 text-xs sm:text-[13px] text-[#9AA2A9]">
               <li>
                 <Link
                   href="/services/seo"
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
                   <span>SEO & Organic Search</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/local-seo"
-                  className="hover:text-white transition-colors flex items-center justify-between group"
-                >
-                  <span>Local SEO & Maps</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
                 </Link>
               </li>
               <li>
@@ -80,7 +71,7 @@ export default function Footer() {
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
                   <span>Web Design & Development</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
                 </Link>
               </li>
               <li>
@@ -89,7 +80,52 @@ export default function Footer() {
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
                   <span>Google Ads Management</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/meta-ads"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Meta Ads Management</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/social-media-marketing"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Social Media Marketing</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/graphic-design"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Graphic Design</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/branding"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Branding & Identity</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/email-marketing"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Email Marketing & Nurture</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
                 </Link>
               </li>
               <li>
@@ -98,7 +134,7 @@ export default function Footer() {
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
                   <span>Website Optimization</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
                 </Link>
               </li>
               <li>
@@ -107,16 +143,7 @@ export default function Footer() {
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
                   <span>Lead Generation Systems</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/content-marketing"
-                  className="hover:text-white transition-colors flex items-center justify-between group"
-                >
-                  <span>Content Marketing</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
                 </Link>
               </li>
               <li>
@@ -125,7 +152,7 @@ export default function Footer() {
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
                   <span>Analytics & Tracking</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
                 </Link>
               </li>
             </ul>
@@ -222,6 +249,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/book-call" className="hover:text-white transition-colors text-[#D8B477] font-medium flex items-center justify-between group">
+                  <span>Book Strategy Call</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#D8B477]" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/audit" className="hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Free Technical Audit Tool</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#D8B477]" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
                   Contact Consultation
                 </Link>
@@ -244,12 +283,12 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-6 pt-5 border-t border-[#223244]/60">
+            <div className="mt-6 pt-5 border-t border-[#223244]/60 space-y-2">
               <Link
-                href="/#growth-audit"
+                href="/book-call"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D8B477] hover:underline"
               >
-                <span>Request Free Growth Audit</span>
+                <span>Schedule a 30-Min Strategy Call</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>

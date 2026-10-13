@@ -7,6 +7,9 @@ import {
   Sparkles,
   ArrowUpRight,
   AlertCircle,
+  HelpCircle,
+  DollarSign,
+  Clock,
 } from "lucide-react";
 import GrowthAuditForm from "./GrowthAuditForm";
 
@@ -41,6 +44,15 @@ export interface IndustryPageProps {
     href: string;
     role: string;
   }[];
+  investmentGuidance?: {
+    range: string;
+    scope: string;
+    typicalTimeline: string;
+  };
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export default function IndustryPageTemplate({ data }: { data: IndustryPageProps }) {
@@ -56,12 +68,34 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageProps
     },
   };
 
+  const faqSchema =
+    data.faqs && data.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: data.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <div className="w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(industrySchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* Hero Section */}
       <section className="bg-[#101A24] text-white pt-12 pb-20 border-b border-[#1C2B3A] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -257,6 +291,96 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageProps
           </div>
         </div>
       </section>
+
+      {/* Indicative Investment Guidance */}
+      {data.investmentGuidance && (
+        <section className="py-16 bg-[#F7F5F0] border-t border-[#EAE6DC]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-2xl p-8 sm:p-10 border border-[#EAE6DC] shadow-xs">
+              <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D8B477]/10 text-[#A48145] text-xs font-semibold uppercase tracking-wider mb-4">
+                  <DollarSign className="w-3.5 h-3.5" />
+                  <span>Transparent Investment Guidance</span>
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#101A24] font-medium tracking-tight mb-4">
+                  Indicative Budgets & Typical Timelines
+                </h3>
+                <p className="text-[#626B73] text-sm sm:text-base leading-relaxed mb-8">
+                  Every engagement is scoped according to your commercial goals, technical foundation, and competitive market. We avoid arbitrary retainers and focus on measurable growth infrastructure.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-[#EAE6DC]">
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-[#8C959D] font-semibold mb-1">
+                    Typical Investment Range
+                  </div>
+                  <div className="text-2xl font-serif font-bold text-[#101A24]">
+                    {data.investmentGuidance.range}
+                  </div>
+                  <p className="text-xs text-[#626B73] mt-1">Based on scope & team tier</p>
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-[#8C959D] font-semibold mb-1">
+                    Standard Scope
+                  </div>
+                  <div className="text-sm font-medium text-[#101A24] leading-relaxed">
+                    {data.investmentGuidance.scope}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-[#8C959D] font-semibold mb-1">
+                    Typical Timeline
+                  </div>
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#237A72]">
+                    <Clock className="w-4 h-4 shrink-0" />
+                    <span>{data.investmentGuidance.typicalTimeline}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Industry FAQs */}
+      {data.faqs && data.faqs.length > 0 && (
+        <section className="py-20 bg-white border-t border-[#EAE6DC]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D8B477]/10 text-[#A48145] text-xs font-semibold uppercase tracking-wider mb-4">
+                <HelpCircle className="w-3.5 h-3.5" />
+                <span>Frequently Asked Questions</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#101A24] font-medium tracking-tight mb-4">
+                Common Questions from {data.title} Leaders
+              </h2>
+              <p className="text-[#626B73] text-sm sm:text-base leading-relaxed">
+                Clear answers regarding deliverables, attribution, communication, and expected milestones.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {data.faqs.map((faq, idx) => (
+                <details
+                  key={idx}
+                  className="group bg-[#F7F5F0] rounded-xl p-6 border border-[#EAE6DC] transition-all open:border-[#D8B477] open:bg-white"
+                >
+                  <summary className="flex items-center justify-between cursor-pointer font-serif text-lg font-medium text-[#101A24] group-hover:text-[#A48145] transition-colors list-none">
+                    <span>{faq.question}</span>
+                    <span className="ml-4 flex-shrink-0 text-[#8C959D] group-hover:text-[#A48145] transition-transform group-open:rotate-180">
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="mt-4 text-sm text-[#626B73] leading-relaxed border-t border-[#EAE6DC] pt-4">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Embedded Audit Form */}
       <section id="industry-audit" className="bg-[#101A24] py-20 text-white">

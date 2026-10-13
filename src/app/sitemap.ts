@@ -21,6 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/services/local-seo", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/web-design-development", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/google-ads", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
+    { path: "/services/meta-ads", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
+    { path: "/services/social-media-marketing", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
+    { path: "/services/graphic-design", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
+    { path: "/services/branding", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
+    { path: "/services/email-marketing", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/website-optimization", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/lead-generation", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
     { path: "/services/content-marketing", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
@@ -45,6 +50,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Corporate & Consultation
     { path: "/about", changeFrequency: "monthly", priority: 0.7, lastModified: currentDate },
     { path: "/contact", changeFrequency: "monthly", priority: 0.8, lastModified: currentDate },
+    { path: "/book-call", changeFrequency: "weekly", priority: 0.9, lastModified: currentDate },
+    { path: "/audit", changeFrequency: "weekly", priority: 0.85, lastModified: currentDate },
 
     // Compliance & Legal
     { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3, lastModified: "2026-10-01" },

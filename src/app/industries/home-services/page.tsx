@@ -115,6 +115,25 @@ const homeServicesData: IndustryPageProps = {
       role: "Turn mobile smartphone visitors into booked service calls in one tap.",
     },
   ],
+  investmentGuidance: {
+    range: "$1,500 – $4,000 / mo",
+    scope: "Local map-pack rank engineering, negative-keyword scrubbed Google Ads, high-intent landing pages, and CallRail tracking integration.",
+    typicalTimeline: "Initial campaign launch in 14 days; map-pack momentum builds over 60–90 days.",
+  },
+  faqs: [
+    {
+      question: "How do you prevent wasting Google Ads budget on low-margin repair inquiries?",
+      answer: "We structure campaign negative-keyword lists to eliminate DIY searches, part requests, and sub-$100 repair inquiries, targeting high-margin replacement, installation, and whole-home contract terms.",
+    },
+    {
+      question: "Do you integrate with dispatch tools like ServiceTitan or Housecall Pro?",
+      answer: "Yes. We configure lead capture webhooks and phone tracking to feed booked calls directly into your CRM or dispatch queue with original marketing campaign attribution.",
+    },
+    {
+      question: "How long before we see improvements in Google 3-Pack rankings?",
+      answer: "Citation consistency, geo-relevance silos, and Google Business Profile optimization typically show local rank expansion within 45 to 90 days depending on local territory competition.",
+    },
+  ],
 };
 
 export default function HomeServicesPage() {

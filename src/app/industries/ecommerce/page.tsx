@@ -115,6 +115,25 @@ const ecommerceData: IndustryPageProps = {
       role: "Accelerate mobile checkout speed and eliminate cart abandonment friction.",
     },
   ],
+  investmentGuidance: {
+    range: "$2,500 – $6,000 / mo",
+    scope: "Google Shopping feed restructuring, Performance Max optimization, technical category SEO, and checkout conversion rate audits.",
+    typicalTimeline: "Product feed & audit turnaround in 10 days; ROAS optimization stabilization in 30–60 days.",
+  },
+  faqs: [
+    {
+      question: "Which ecommerce platforms do you work with?",
+      answer: "We support Shopify Plus, WooCommerce, BigCommerce, and custom headless Next.js ecommerce storefronts.",
+    },
+    {
+      question: "How do you handle post-iOS 14 attribution for paid ads?",
+      answer: "We implement server-side tracking (Meta Conversions API via Google Tag Manager Server-Side) alongside GA4 custom ecommerce events to preserve accurate purchase attribution.",
+    },
+    {
+      question: "What minimum ad spend do you recommend for paid search?",
+      answer: "We recommend a minimum monthly ad spend of $3,000 to ensure adequate conversion data density for Google's smart bidding algorithms to optimize effectively.",
+    },
+  ],
 };
 
 export default function EcommercePage() {

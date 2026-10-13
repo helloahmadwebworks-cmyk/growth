@@ -37,6 +37,16 @@ export interface ServicePageProps {
     href: string;
     description: string;
   }[];
+  sampleConcepts?: {
+    title: string;
+    category: string;
+    description: string;
+    deliverables: string[];
+  }[];
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export default function ServicePageTemplate({ data }: { data: ServicePageProps }) {
@@ -54,12 +64,34 @@ export default function ServicePageTemplate({ data }: { data: ServicePageProps }
     areaServed: ["United States", "Canada", "Australia", "United Arab Emirates"],
   };
 
+  const faqSchema =
+    data.faqs && data.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: data.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <div className="w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* Service Hero (Dark Navy) */}
       <section className="bg-[#101A24] text-white pt-12 pb-20 border-b border-[#1C2B3A] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D8B477]/5 rounded-full blur-[120px] pointer-events-none" />
@@ -247,8 +279,100 @@ export default function ServicePageTemplate({ data }: { data: ServicePageProps }
         </div>
       </section>
 
+      {/* Sample Deliverables / Concept Prototypes (Optional Showcase) */}
+      {data.sampleConcepts && data.sampleConcepts.length > 0 && (
+        <section className="bg-[#FAF9F6] py-20 border-b border-[#E8E4DA]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F2EDE4] border border-[#E4DDD0] text-xs font-semibold uppercase tracking-wider text-[#A48145] mb-3">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Sample Concepts & Delivery Standards</span>
+              </div>
+              <h2 className="font-serif-heading text-3xl sm:text-4xl text-[#1D2732] font-normal mb-3">
+                Tangible Deliverables & Framework Prototypes
+              </h2>
+              <p className="text-sm text-[#626B73] leading-relaxed">
+                Representative deliverables illustrating our architectural rigor and execution quality. Every engagement produces clear, reusable, client-owned assets with zero ambiguity.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+              {data.sampleConcepts.map((concept, cIdx) => (
+                <div
+                  key={cIdx}
+                  className="bg-white rounded-2xl p-7 border border-[#EAE6DC] hover:border-[#D8B477] transition-all shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-[#A48145] mb-2">
+                      {concept.category}
+                    </div>
+                    <h3 className="font-serif-heading text-xl text-[#1D2732] font-normal mb-3">
+                      {concept.title}
+                    </h3>
+                    <p className="text-xs text-[#626B73] leading-relaxed mb-6">
+                      {concept.description}
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-[#F0ECE2]">
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-[#1D2732] mb-2.5">
+                      Deliverable Items:
+                    </div>
+                    <ul className="space-y-2 text-xs text-[#1D2732]">
+                      {concept.deliverables.map((item, iIdx) => (
+                        <li key={iIdx} className="flex items-start gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#237A72] shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Frequently Asked Questions (Ivory Accordion) */}
+      {data.faqs && data.faqs.length > 0 && (
+        <section className="bg-[#F7F5F0] py-20 border-b border-[#E8E4DA]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#A48145] mb-2">
+                Clarity & Expectations
+              </div>
+              <h2 className="font-serif-heading text-3xl sm:text-4xl text-[#1D2732] font-normal mb-3">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-sm text-[#626B73] leading-relaxed">
+                Clear answers regarding deliverables, scope boundaries, process timelines, and commercial accountability.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {data.faqs.map((faq, fIdx) => (
+                <details
+                  key={fIdx}
+                  className="group bg-white rounded-xl border border-[#EAE6DC] p-5 sm:p-6 transition-all hover:border-[#D8B477]/60 open:border-[#D8B477] open:shadow-sm"
+                >
+                  <summary className="flex items-center justify-between cursor-pointer list-none font-medium text-base text-[#1D2732] group-hover:text-[#A48145] transition-colors focus:outline-none">
+                    <span className="pr-4">{faq.question}</span>
+                    <span className="w-6 h-6 rounded-full bg-[#FAF9F6] border border-[#EAE6DC] flex items-center justify-center shrink-0 group-open:rotate-180 group-open:bg-[#D8B477] group-open:text-[#101A24] transition-transform">
+                      <ChevronRight className="w-3.5 h-3.5 rotate-90" />
+                    </span>
+                  </summary>
+                  <p className="mt-4 pt-4 border-t border-[#F5F2EB] text-sm text-[#626B73] leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Related Services */}
-      <section className="bg-[#F7F5F0] py-16 border-b border-[#E8E4DA]">
+      <section className="bg-[#FAF9F6] py-16 border-b border-[#E8E4DA]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <h3 className="font-serif-heading text-2xl text-[#1D2732] font-normal">

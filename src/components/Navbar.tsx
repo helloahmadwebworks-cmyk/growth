@@ -22,6 +22,11 @@ import {
   Cpu,
   Code2,
   MapPin,
+  Megaphone,
+  Share2,
+  Palette,
+  Layers,
+  Mail,
 } from "lucide-react";
 
 const serviceLinks = [
@@ -48,6 +53,36 @@ const serviceLinks = [
     href: "/services/google-ads",
     desc: "Drive instant high-intent traffic with controlled CPA.",
     icon: Target,
+  },
+  {
+    name: "Meta Ads Management",
+    href: "/services/meta-ads",
+    desc: "Scale paid acquisition on Facebook & Instagram with proven ROAS.",
+    icon: Megaphone,
+  },
+  {
+    name: "Social Media Marketing",
+    href: "/services/social-media-marketing",
+    desc: "Build organic authority, executive presence, and audience trust.",
+    icon: Share2,
+  },
+  {
+    name: "Graphic Design",
+    href: "/services/graphic-design",
+    desc: "High-CTR ad creatives, brochures, pitch decks, and brand visuals.",
+    icon: Palette,
+  },
+  {
+    name: "Branding & Visual Identity",
+    href: "/services/branding",
+    desc: "Logo systems, positioning, color palettes, and brand guidelines.",
+    icon: Layers,
+  },
+  {
+    name: "Email Marketing & Nurturing",
+    href: "/services/email-marketing",
+    desc: "Automated lifecycle sequences, deliverability, and re-activation.",
+    icon: Mail,
   },
   {
     name: "Website Optimization",
@@ -199,27 +234,28 @@ export default function Navbar() {
               </Link>
 
               {servicesDropdown && (
-                <div className="absolute left-0 mt-1 w-80 bg-[#14202C] border border-[#223244] rounded-xl shadow-2xl shadow-black/50 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="text-[11px] font-semibold uppercase tracking-wider text-[#D8B477] px-3 py-1.5 border-b border-[#223244]/60">
-                    Core Growth Capabilities
+                <div className="absolute left-0 mt-1 w-[640px] xl:w-[680px] bg-[#14202C] border border-[#223244] rounded-xl shadow-2xl shadow-black/50 p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-[#D8B477] px-3 py-1.5 border-b border-[#223244]/60 flex items-center justify-between">
+                    <span>Full-Service Growth Capabilities (13 Solutions)</span>
+                    <span className="text-[10px] text-[#8C959D] font-normal">Modular & Integrated</span>
                   </div>
-                  <div className="mt-1 space-y-0.5">
+                  <div className="mt-2 grid grid-cols-2 gap-1">
                     {serviceLinks.map((service) => {
                       const Icon = service.icon;
                       return (
                         <Link
                           key={service.href}
                           href={service.href}
-                          className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#1A2938] transition-colors group"
+                          className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-[#1A2938] transition-colors group"
                         >
-                          <div className="w-8 h-8 rounded-md bg-[#223244] group-hover:bg-[#D8B477]/20 flex items-center justify-center shrink-0 transition-colors">
-                            <Icon className="w-4 h-4 text-[#D8B477]" />
+                          <div className="w-7 h-7 rounded-md bg-[#223244] group-hover:bg-[#D8B477]/20 flex items-center justify-center shrink-0 transition-colors mt-0.5">
+                            <Icon className="w-3.5 h-3.5 text-[#D8B477]" />
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-white group-hover:text-[#D8B477] transition-colors">
+                            <div className="text-xs font-semibold text-white group-hover:text-[#D8B477] transition-colors leading-tight">
                               {service.name}
                             </div>
-                            <div className="text-xs text-[#8C959D] line-clamp-1">
+                            <div className="text-[11px] text-[#8C959D] line-clamp-1 leading-normal">
                               {service.desc}
                             </div>
                           </div>
@@ -227,13 +263,13 @@ export default function Navbar() {
                       );
                     })}
                   </div>
-                  <div className="pt-2 mt-1 border-t border-[#223244]/60 px-3 pb-1">
+                  <div className="pt-2 mt-2 border-t border-[#223244]/60 px-3 pb-1">
                     <Link
                       href="/services"
                       className="text-xs font-semibold text-[#D8B477] hover:underline flex items-center justify-between"
                     >
-                      View All 7 Services
-                      <ArrowRight className="w-3 h-3" />
+                      <span>Explore All 13 Core Growth Services</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
@@ -351,7 +387,13 @@ export default function Navbar() {
           </nav>
 
           {/* Primary CTA */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              href="/book-call"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-[#2D3E50] hover:border-[#D8B477] text-[#CBD3DC] hover:text-[#D8B477] font-medium text-xs transition-colors"
+            >
+              <span>Book a Call</span>
+            </Link>
             <Link
               href="/#growth-audit"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#D8B477] hover:bg-[#C9A466] text-[#101A24] font-medium text-sm transition-all duration-200 shadow-md shadow-[#D8B477]/10 hover:shadow-[#D8B477]/20 active:scale-[0.98]"
@@ -450,7 +492,14 @@ export default function Navbar() {
               </Link>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 space-y-2">
+              <Link
+                href="/book-call"
+                className="w-full flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-[#2D3E50] text-white hover:text-[#D8B477] font-medium text-sm"
+              >
+                <span>Book a Strategy Call</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
               <Link
                 href="/#growth-audit"
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#D8B477] text-[#101A24] font-semibold text-sm shadow-md"

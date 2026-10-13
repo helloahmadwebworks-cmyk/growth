@@ -11,19 +11,24 @@ import {
   ArrowRight,
   CheckCircle2,
   Sparkles,
+  Share2,
+  Palette,
+  Layers,
+  Megaphone,
+  Mail,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Growth Services — Digital Systems for Modern Businesses",
   description:
-    "Explore our full suite of digital growth services: SEO, Local SEO, Website Design & Development, Google Ads, Website Optimization, Lead Generation Systems, Content Marketing, and Analytics.",
+    "Explore our full suite of integrated digital growth services: SEO, Google Ads, Meta Ads, Web Development, Graphic Design, Branding, Social Media, Email Marketing, Website Optimization, Lead Generation, and Analytics.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
     title: "Growth Services — Digital Systems for Modern Businesses | GrowByMasters",
     description:
-      "Explore our full suite of digital growth services: SEO, Local SEO, Website Design & Development, Google Ads, Website Optimization, Lead Generation Systems, Content Marketing, and Analytics.",
+      "Explore our full suite of integrated digital growth services: SEO, Google Ads, Meta Ads, Web Development, Graphic Design, Branding, Social Media, Email Marketing, Website Optimization, Lead Generation, and Analytics.",
     url: "https://growbymasters.com/services",
     siteName: "GrowByMasters",
     images: [{ url: "/images/hero-globe.jpg", width: 1200, height: 630, alt: "GrowByMasters Growth Services" }],
@@ -85,6 +90,76 @@ const services = [
       "Aggressive Negative Keyword Sculpting",
       "Ad Copy A/B Testing & Micro-Conversion Hooks",
       "Server-Side Enhanced Conversion Tracking",
+    ],
+  },
+  {
+    icon: Megaphone,
+    title: "Meta Ads Management",
+    badge: "Paid Social & Direct ROAS",
+    href: "/services/meta-ads",
+    summary:
+      "Turn paid social into a predictable acquisition engine across Facebook and Instagram. Systematic creative testing matrices, server-side Conversions API (CAPI), and margin-focused ROAS.",
+    deliverables: [
+      "Full-Funnel Campaign Architecture (Prospecting & Retargeting)",
+      "High-Volume Creative Testing Matrices (Static & Carousel Hooks)",
+      "Server-Side Meta Conversions API (CAPI) Tracking Setup",
+      "First-Party Audience Segmentation & CRM Sync",
+    ],
+  },
+  {
+    icon: Share2,
+    title: "Social Media Marketing",
+    badge: "Organic Brand Authority",
+    href: "/services/social-media-marketing",
+    summary:
+      "Cultivate an authoritative organic brand presence across LinkedIn, Instagram, and X. Editorial content calendars, executive ghostwriting, and active community moderation.",
+    deliverables: [
+      "Multi-Platform Channel Strategy (LinkedIn, Instagram, X)",
+      "Monthly Editorial Content Calendar & Post Scheduling",
+      "Executive Thought-Leadership & Educational Carousels",
+      "Community Engagement & Inbound Message Routing",
+    ],
+  },
+  {
+    icon: Palette,
+    title: "Graphic Design",
+    badge: "Commercial Visual Design",
+    href: "/services/graphic-design",
+    summary:
+      "High-impact visual assets engineered for commercial conversion. High-CTR paid ad creatives, corporate brochures, executive pitch decks, and digital marketing graphics.",
+    deliverables: [
+      "Paid Advertising Creatives (Meta, Google Display, LinkedIn)",
+      "Corporate Collateral (Brochures, One-Sheets, Case Summaries)",
+      "Executive Pitch Decks (Keynote / PowerPoint / Google Slides)",
+      "Vector Brand Asset Libraries with Figma Source Files",
+    ],
+  },
+  {
+    icon: Layers,
+    title: "Branding & Visual Identity",
+    badge: "Identity & Positioning",
+    href: "/services/branding",
+    summary:
+      "Command authority and justify premium pricing. Strategic positioning, scalable logo mark architectures, accessible color palettes, typographic discipline, and master brand guidelines.",
+    deliverables: [
+      "Core Positioning & Value Proposition Architecture",
+      "Primary Logo, Secondary Wordmarks & Favicon Systems",
+      "Harmonious Color Palette (Digital Hex, Print CMYK, Accessible)",
+      "Comprehensive 30+ Page Brand Identity Guidelines Manual",
+    ],
+  },
+  {
+    icon: Mail,
+    title: "Email Marketing & Lead Nurturing",
+    badge: "Lifecycle Conversion",
+    href: "/services/email-marketing",
+    summary:
+      "Bridge inbound lead capture and closed sales. Automated welcome workflows, lead magnet follow-ups, re-activation sequences, and deliverability infrastructure (SPF, DKIM, DMARC).",
+    deliverables: [
+      "Automated Welcome & Lead Magnet Nurture Sequences",
+      "Technical Deliverability Hardening (SPF, DKIM, DMARC)",
+      "Consultation Prep & Inactive Lead Re-Activation Campaigns",
+      "Responsive Email Template Design & Behavioral Segmentation",
     ],
   },
   {
