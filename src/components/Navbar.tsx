@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BrandLogo from "@/components/BrandLogo";
 import {
   Menu,
   X,
@@ -184,18 +185,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo / Brand Wordmark */}
-          <Link
-            href="/"
-            className="flex flex-col group transition-transform duration-200"
-            aria-label="GrowByMasters Home"
-          >
-            <span className="font-serif-heading text-2xl sm:text-[26px] tracking-tight text-white font-normal group-hover:text-[#D8B477] transition-colors">
-              GrowByMasters
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#8C959D] -mt-1 font-medium">
-              Digital Growth & Consulting
-            </span>
-          </Link>
+          <BrandLogo />
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">

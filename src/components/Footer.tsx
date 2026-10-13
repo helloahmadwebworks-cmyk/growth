@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 import {
   Globe2,
   Mail,
@@ -15,14 +16,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-[#223244]">
           {/* Brand Column */}
           <div className="lg:col-span-2 pr-0 lg:pr-6">
-            <Link href="/" className="inline-block group mb-4">
-              <span className="font-serif-heading text-2xl text-white font-normal group-hover:text-[#D8B477] transition-colors">
-                GrowByMasters
-              </span>
-              <span className="block text-[11px] uppercase tracking-[0.2em] text-[#8C959D] -mt-0.5">
-                Digital Growth & Consulting
-              </span>
-            </Link>
+            <div className="mb-5">
+              <BrandLogo />
+            </div>
             <p className="text-sm text-[#9AA2A9] leading-relaxed mb-6 max-w-md">
               We Build Digital Growth Systems. We help ambitious businesses improve
               online search visibility, attract qualified buyer enquiries, and turn
